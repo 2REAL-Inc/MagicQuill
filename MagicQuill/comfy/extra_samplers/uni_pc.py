@@ -669,7 +669,7 @@ class UniPC:
 
             if use_corrector:
                 model_t = self.model_fn(x_t, t)
-                if D1s is not None:
+                if D1s != None:
                     corr_res = torch.einsum('k,bkchw->bchw', rhos_c[:-1], D1s)
                 else:
                     corr_res = 0
@@ -689,7 +689,7 @@ class UniPC:
 
             if use_corrector:
                 model_t = self.model_fn(x_t, t)
-                if D1s is not None:
+                if D1s != None:
                     corr_res = torch.einsum('k,bkchw->bchw', rhos_c[:-1], D1s)
                 else:
                     corr_res = 0
