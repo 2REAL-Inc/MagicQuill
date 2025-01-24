@@ -22,7 +22,7 @@ from magic_utils import HWC3, apply_color, common_input_validate, resize_image_w
 from pidi import pidinet
 
 
-supported_pt_extensions = set(['.ckpt', '.pt', '.bin', '.pth', '.safetensors', '.pkl'])
+supported_pt_extensions = {'.ckpt', '.pt', '.bin', '.pth', '.safetensors', '.pkl'}
 folder_names_and_paths = {}
 
 base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
