@@ -68,8 +68,9 @@ class SDClipModel(torch.nn.Module, ClipTokenWeightEncoder):
     ]
     def __init__(self, version="openai/clip-vit-large-patch14", device="cpu", max_length=77,
                  freeze=True, layer="last", layer_idx=None, textmodel_json_config=None, dtype=None, model_class=comfy.clip_model.CLIPTextModel,
-                 special_tokens={"start": 49406, "end": 49407, "pad": 49407}, layer_norm_hidden_state=True, enable_attention_masks=False, zero_out_masked=False,
+                 special_tokens=None, layer_norm_hidden_state=True, enable_attention_masks=False, zero_out_masked=False,
                  return_projected_pooled=True):  # clip-vit-base-patch32
+        special_tokens = {"start": 49406, "end": 49407, "pad": 49407} if special_tokens is None else special_tokens
         super().__init__()
         assert layer in self.LAYERS
 

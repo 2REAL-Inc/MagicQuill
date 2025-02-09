@@ -567,7 +567,8 @@ class CutForInpaint:
 
 #### Utility function
 
-def get_files_with_extension(folder_name, extension=['.safetensors']):
+def get_files_with_extension(folder_name, extension=None):
+    extension = ['.safetensors'] if extension is None else extension
 
     try:
         folders = folder_paths.get_folder_paths(folder_name)

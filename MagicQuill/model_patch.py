@@ -92,11 +92,12 @@ def patch_model_function_wrapper(model, forward_patch, remove=False):
 
 # Model needs current step number and cfg at inference step. It is possible to write a custom KSampler but I'd like to use ComfyUI's one.
 # The first versions had modified_common_ksampler, but it broke custom KSampler nodes
-def modified_sample(model, noise, positive, negative, cfg, device, sampler, sigmas, model_options={}, 
+def modified_sample(model, noise, positive, negative, cfg, device, sampler, sigmas, model_options=None, 
            latent_image=None, denoise_mask=None, callback=None, disable_pbar=False, seed=None):
     '''
     Modified by BrushNet nodes
     '''
+    model_options = {} if model_options is None else model_options
     cfg_guider = comfy.samplers.CFGGuider(model)
     cfg_guider.set_conds(positive, negative)
     cfg_guider.set_cfg(cfg)

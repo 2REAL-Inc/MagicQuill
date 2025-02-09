@@ -608,7 +608,8 @@ def load_unet(unet_path):
         raise RuntimeError("ERROR: Could not detect model type of: {}".format(unet_path))
     return model
 
-def save_checkpoint(output_path, model, clip=None, vae=None, clip_vision=None, metadata=None, extra_keys={}):
+def save_checkpoint(output_path, model, clip=None, vae=None, clip_vision=None, metadata=None, extra_keys=None):
+    extra_keys = {} if extra_keys is None else extra_keys
     clip_sd = None
     load_models = [model]
     if clip is not None:
