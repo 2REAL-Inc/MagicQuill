@@ -774,7 +774,7 @@ def brushnet_inference(x, timesteps, transformer_options, debug):
         print('BrushNet inference: there is no model key in brushnet')
         return ([], 0, [])
     brushnet = bo['model']
-    if not (isinstance(brushnet, BrushNetModel) or isinstance(brushnet, PowerPaintModel)):
+    if not isinstance(brushnet, (BrushNetModel, PowerPaintModel)):
         print('BrushNet model is not a BrushNetModel class')
         return ([], 0, [])
 
